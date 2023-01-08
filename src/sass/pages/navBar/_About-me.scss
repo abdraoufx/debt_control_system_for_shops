@@ -1,0 +1,19 @@
+@use "../../vars/variables" as *;
+
+.main-section {
+  &__about-me {
+    .contact {
+      &__links {
+        > a > * {
+          cursor: pointer;
+
+          transition: $fastTrns;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}

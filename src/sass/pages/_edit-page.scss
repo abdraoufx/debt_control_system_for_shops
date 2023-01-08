@@ -1,0 +1,184 @@
+@use "../layout/colors" as *;
+@use "../vars/variables" as *;
+@use "../helpers/mixins" as *;
+
+.edit-wrapper {
+  border: 1px solid $white;
+  border-radius: 6px;
+
+  padding: 14px;
+
+  background-color: $light-black;
+
+  width: 100%;
+  max-width: 450px;
+
+  &__head {
+    margin-bottom: 6px;
+
+    display: flex;
+    align-items: center;
+
+    .back-to-home {
+      text-transform: capitalize;
+
+      font-weight: 600;
+      font-size: 18px;
+
+      border: 1px solid $white;
+      border-radius: 3px;
+
+      padding: 2px 8px;
+
+      transition: $fastTrns;
+
+      &:hover {
+        background-color: $violet;
+      }
+    }
+
+    .title {
+      flex: 1;
+
+      font-size: 28px;
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+      text-align: center;
+    }
+  }
+
+  &__user-data {
+    .name {
+      margin-bottom: 5px;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    p {
+      margin-left: 18px;
+
+      font-size: 17px;
+    }
+
+    .btn-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 12px;
+
+      .go-back {
+        justify-self: flex-start;
+      }
+
+      &__btn {
+        background-color: $violet;
+
+        text-transform: capitalize;
+        font-weight: 600;
+
+        padding: 5px 12px;
+
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        transition: $fastTrns;
+
+        &:hover {
+          background-color: $white;
+
+          color: $violet;
+        }
+      }
+    }
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    > button {
+      padding: 4px 8px;
+
+      font-size: 17px;
+      font-weight: 600;
+
+      width: 100%;
+      max-width: 130px;
+
+      border-radius: 4px;
+
+      text-transform: capitalize;
+
+      transition: $fastTrns;
+    }
+
+    &__save {
+      background-color: $violet;
+
+      &:hover {
+        background-color: $white;
+        color: $violet;
+      }
+    }
+
+    &__cancel {
+      background-color: $white;
+      color: $violet;
+
+      &:hover {
+        background-color: $violet;
+        color: $white;
+      }
+    }
+  }
+
+  .submit-data {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    input {
+      background-color: $dark-black;
+
+      padding: 6px 11px;
+
+      font-weight: 500;
+
+      border-radius: 3px;
+
+      width: 100%;
+      max-width: 285px;
+
+      @include tl-sm {
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      font-weight: 600;
+
+      > span {
+        width: 83px;
+      }
+    }
+  }
+}

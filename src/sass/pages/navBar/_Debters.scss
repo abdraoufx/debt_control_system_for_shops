@@ -1,0 +1,48 @@
+@use "../../layout/colors" as *;
+
+.main-section {
+  &__customers {
+    &__head {
+      .status {
+        > p {
+          > span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .btns-and-search {
+      &__btns {
+        > {
+          button {
+            width: 150px;
+
+            border-radius: 100vmax;
+
+            padding: 5px 7px;
+
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    .debters-list {
+      margin: 0 !important;
+      max-width: none !important;
+      th {
+        img {
+          width: 20px;
+
+          display: inline-block;
+
+          margin-left: 8px;
+        }
+      }
+    }
+    .add-new-debter {
+      label {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@use "../../layout/colors" as *;
+
+.main-section {
+  &__salary-scheduele {
+    .add-new-sched {
+      .inputs {
+        margin-bottom: 7px;
+        &__one,
+        &__two {
+          input {
+            margin-top: 6px;
+          }
+          label {
+            margin-right: 10px;
+          }
+        }
+        &__one {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}

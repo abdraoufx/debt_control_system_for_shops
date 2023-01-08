@@ -1,0 +1,17 @@
+@use "../../layout/colors" as *;
+@use "../../vars/variables" as *;
+
+.main-section {
+  &__notes {
+    .notes-container {
+      input[type="text"] {
+        background-color: transparent;
+        caret-color: $violet;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

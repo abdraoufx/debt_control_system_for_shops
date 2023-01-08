@@ -1,0 +1,27 @@
+// Media Queries Mixins
+// Small
+@mixin sm {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+// Medium
+@mixin md {
+  @media (max-width: 825px) {
+    @content;
+  }
+}
+
+// Tailwind Mixin To Get Along With
+@mixin tl-md {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tl-sm {
+  @media (min-width: 640px) {
+    @content;
+  }
+}

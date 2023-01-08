@@ -1,0 +1,130 @@
+@use "../layout/colors" as *;
+@use "../helpers/mixins" as *;
+
+@import "./navBar/Calculator";
+
+.main-section {
+  grid-area: main;
+
+  .navigated-link {
+    &__icon {
+      @include md {
+        display: block;
+      }
+      display: none;
+    }
+  }
+
+  .all-cards {
+    & > div {
+      border-radius: 6px;
+
+      width: calc(97% / 3);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:first-of-type > img {
+        width: 100px;
+
+        @include sm {
+          width: 65px !important;
+        }
+      }
+      &:nth-of-type(2) > img,
+      &:last-of-type > img {
+        width: 80px;
+
+        @include sm {
+          width: 55px !important;
+        }
+      }
+
+      &:last-of-type > img {
+        position: relative;
+        bottom: 10px;
+      }
+
+      > .text-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        color: $white;
+        .number {
+          font-size: 35px;
+
+          @include sm {
+            font-size: 28px;
+          }
+        }
+        @include sm {
+          .txt {
+            font-weight: 600;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    @include sm {
+      justify-content: center;
+
+      & > div {
+        flex-basis: 165px;
+      }
+    }
+  }
+
+  &__main {
+    & > div {
+      width: calc(95% / 2);
+
+      @include sm {
+        width: 100%;
+      }
+    }
+
+    .analytics {
+      & > div {
+        background-color: $light-black;
+        color: $white;
+
+        padding: 5px 12px;
+
+        border-radius: 6px;
+
+        display: flex;
+        flex-direction: column;
+        > {
+          .title {
+            text-decoration: underline;
+
+            margin-bottom: 9px;
+          }
+        }
+      }
+
+      &__about-customers {
+        > .debt-status {
+          > div {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+
+      &__quick-links {
+        .buttons {
+          &__left-side,
+          &__right-side {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+}

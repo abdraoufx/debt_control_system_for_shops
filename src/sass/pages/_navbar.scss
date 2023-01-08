@@ -1,0 +1,98 @@
+@use "../layout/colors" as *;
+@use "../vars/variables" as *;
+@use "../helpers/mixins" as *;
+
+.main-nav {
+  height: calc(100vh - $header-h); // 103px = Header Height
+  width: 100%;
+
+  grid-area: nav;
+
+  border-top: 1px solid $violet;
+
+  @include md {
+    border-top: none;
+
+    position: fixed;
+    z-index: -1;
+
+    left: 0%;
+    top: 0;
+
+    height: 100%;
+    width: 0% !important;
+
+    transition: $smoothTrns;
+
+    & + .main-section {
+      grid-column: 1 / 6 !important;
+    }
+
+    &.is-expanded {
+      z-index: 99;
+
+      width: 60% !important;
+
+      box-shadow: 1px 1px 1px 100vmax rgba(0, 0, 0, 0.397);
+    }
+  }
+
+  > {
+    div:not(.main-nav__about) {
+      color: $light-gray;
+    }
+
+    div {
+      cursor: pointer;
+
+      transition: $smoothTrns;
+      .selected {
+        color: $white;
+        transition: $smoothTrns;
+      }
+    }
+  }
+
+  &__functions > div,
+  &__contact {
+    padding: 5px 0;
+  }
+
+  &__functions > div,
+  &__about {
+    font-size: 15px;
+
+    @include tl-sm {
+      font-size: 22px;
+    }
+  }
+
+  &__functions > div {
+    position: relative;
+
+    z-index: 100;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+
+      background-color: $violet;
+
+      width: 0%;
+      height: 100%;
+
+      border-top-right-radius: 100vmax;
+      border-bottom-right-radius: 100vmax;
+
+      transition: $smoothTrns;
+    }
+
+    &.selected::before {
+      width: 90%;
+    }
+  }
+}

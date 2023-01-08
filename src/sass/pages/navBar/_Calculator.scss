@@ -1,0 +1,24 @@
+.calculator {
+  &__screen {
+    caret-color: $violet;
+    direction: rtl;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+  &__screen:focus {
+    outline: $blue 1px solid;
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 12px;
+
+    > button {
+      border-radius: 2px;
+    }
+  }
+}

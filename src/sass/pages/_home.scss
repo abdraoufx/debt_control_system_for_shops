@@ -1,0 +1,258 @@
+@use "../layout/colors" as *;
+@use "../vars/variables" as *;
+@use "../helpers/mixins" as *;
+
+$header-height: 70px;
+
+.main.home {
+  padding: 0 !important;
+}
+
+.home {
+  &__header {
+    height: $header-height;
+
+    padding: 10px 15px;
+
+    background-color: $light-black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    .logo {
+      width: 100px;
+    }
+
+    .navigate-side {
+      display: flex;
+      gap: 12px;
+
+      > button {
+        text-transform: capitalize;
+
+        border-radius: 2px;
+
+        transition: $fastTrns;
+
+        font-size: 15px;
+        font-weight: 600;
+
+        padding: 4px 7px;
+
+        @include tl-sm {
+          padding: 4px 13px;
+        }
+
+        &:first-of-type {
+          background-color: $violet;
+          color: $white;
+
+          &:hover {
+            background-color: $white;
+            color: $violet;
+          }
+        }
+
+        &:last-of-type {
+          background-color: $white;
+          color: $violet;
+
+          &:hover {
+            background-color: $violet;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+
+    padding: 10px 15px;
+
+    color: $white;
+
+    .txt-and-btn {
+      text-align: center;
+
+      &__title {
+        font-size: 55px;
+        font-weight: bold;
+      }
+
+      &__intro {
+        margin-bottom: 15px;
+
+        font-weight: 500;
+        font-size: 24px;
+      }
+
+      &__get-started {
+        background-color: $violet;
+
+        font-weight: 600;
+
+        border-radius: 3px;
+
+        padding: 4px 10px;
+
+        transition: $fastTrns;
+
+        &:hover {
+          background-color: $white;
+          color: $violet;
+        }
+      }
+    }
+
+    .techs-used {
+      width: 100%;
+
+      &__title {
+        font-size: 35px;
+        font-weight: 600;
+
+        text-align: center;
+
+        margin-bottom: 25px;
+      }
+
+      &__boxes {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        width: 100%;
+
+        &.unshow {
+          > .box {
+            opacity: 0;
+
+            transform: translateY(50%);
+          }
+        }
+
+        &.show {
+          > .box {
+            opacity: 1;
+
+            transform: translateY(0%);
+          }
+        }
+
+        > .box {
+          padding: 6px 15px;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          width: 335px;
+          height: 210px;
+
+          background-color: $light-black;
+
+          transition: $fastTrns;
+
+          .image,
+          .images {
+            > div {
+              display: flex;
+              gap: 8px;
+            }
+          }
+
+          .image {
+            img {
+              width: 115px;
+            }
+
+            > div {
+              flex-direction: column;
+              align-items: center;
+            }
+          }
+
+          .images {
+            width: 100%;
+
+            > div {
+              align-items: center;
+              justify-content: space-between;
+
+              > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 9px;
+              }
+            }
+
+            img {
+              width: 155px;
+            }
+          }
+
+          h3.type {
+            font-size: 20px;
+            font-weight: 600;
+
+            margin-bottom: 15px;
+          }
+
+          .tech-name {
+            font-weight: 500;
+            font-size: 19px;
+          }
+
+          &:last-of-type {
+            .plus {
+              font-size: 70px;
+
+              & + .tailwind > .tech-name {
+                position: relative;
+                top: 9px;
+              }
+            }
+          }
+        }
+      }
+    }
+    // &::before {
+    //   content: " ";
+    //   display: block;
+
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+
+    //   width: 100%;
+    //   height: 100%;
+
+    //   opacity: 0.6;
+
+    //   background-image: url("../../../public/images/home-page_images/home-bg-img.jpg");
+    //   background-size: cover;
+    //   background-repeat: no-repeat;
+    // }
+
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+
+    // > div {
+    //   width: calc(97% / 2);
+    // }
+  }
+}

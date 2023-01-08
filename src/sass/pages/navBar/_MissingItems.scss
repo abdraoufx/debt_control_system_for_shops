@@ -1,0 +1,12 @@
+.main-section {
+  &__missing-items {
+    table {
+      th {
+        border-left: none !important;
+      }
+      .operations {
+        justify-content: right !important;
+      }
+    }
+  }
+}
