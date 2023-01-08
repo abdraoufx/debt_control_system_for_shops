@@ -674,11 +674,14 @@ const Analytics = (props: Props) => {
     getLatestDebter();
     getSalaryScheds();
     getCommedities();
-    getNextCommedities();
     getLastMotive();
     getNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    console.log(commedities);
+  }, [commedities]);
 
   return (
     <div className="analytics flex flex-col justify-between gap-[10px] h-full w-full">
