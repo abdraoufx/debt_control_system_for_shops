@@ -596,6 +596,8 @@ const Analytics = (props: Props) => {
     renderNextCommedities: (): JSX.Element | undefined => {
       if (!nexCommedities) return;
 
+      console.log(nexCommedities);
+
       return (
         <>
           <span className="item capitalize text-center">
