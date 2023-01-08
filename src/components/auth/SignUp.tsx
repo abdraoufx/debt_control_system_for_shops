@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebase-config";
 import { AuthContextAPI } from "../../context/auth/AuthContext";
+import { HOME_PAGE } from "../../App";
 
 type Props = {};
 
@@ -41,7 +42,7 @@ const SignUp = (props: Props) => {
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then((resp) => {
         updateProfile(resp.user, { displayName: formData.username });
-        navigate("/login");
+        navigate(`${HOME_PAGE}/login`);
       })
       .catch((err) => {
         setUserExists(true);
@@ -49,7 +50,7 @@ const SignUp = (props: Props) => {
   };
 
   useEffect(() => {
-    if (currentUser) navigate("/dashboard");
+    if (currentUser) navigate(`${HOME_PAGE}/dashboard`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -97,7 +98,8 @@ const SignUp = (props: Props) => {
             Sign Up
           </button>
           <div className="redirect">
-            already have an account? <Link to="/login">Login</Link>
+            already have an account?{" "}
+            <Link to={`${HOME_PAGE}/login`}>Login</Link>
           </div>
         </form>
       </div>

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { HOME_PAGE } from "../../App";
 import { UserContextAPI } from "../../context/UserContext";
 import "../../sass/pages/_navbar.scss";
 
@@ -32,7 +33,7 @@ const NavBar = (props: Props) => {
     "missing-items",
   ];
 
-  const editPath = useNavigate();
+  const navigate = useNavigate();
 
   const renderNavFunction = (arr: string[]): JSX.Element[] => {
     const { filterTheDash } = navBarFncs;
@@ -57,7 +58,7 @@ const NavBar = (props: Props) => {
           key={wordContainsDash ? filterTheDash(word) : word}
           onClick={(e: React.MouseEvent) => {
             toggleSelected(e);
-            editPath(`/${word}`);
+            navigate(`${HOME_PAGE}/${word}`);
             setSelectedLink(word);
           }}
         >
@@ -68,7 +69,7 @@ const NavBar = (props: Props) => {
   };
 
   const clickingAboutMe = () => {
-    editPath("/about-me");
+    navigate(`${HOME_PAGE}/about-me`);
     setSelectedLink("about-me");
     document.querySelector(".main-nav .selected")?.classList.remove("selected");
   };

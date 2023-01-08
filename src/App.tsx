@@ -18,19 +18,28 @@ import Home from "./components/home/Home";
 import "./sass/main.scss";
 import { Route, Routes } from "react-router-dom";
 
+export const HOME_PAGE =
+  "https://abdraoufx.github.io/debt_control_system_for_shops/build";
+
 function App() {
   return (
     <>
       <UserContext>
         <AuthContext>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path={`${HOME_PAGE}/`} element={<Home />} />
+            <Route path={`${HOME_PAGE}/sign-up`} element={<SignUp />} />
+            <Route path={`${HOME_PAGE}/login`} element={<Login />} />
             <Route
-              path="/dashboard"
+              path={`${HOME_PAGE}/forgot-password`}
+              element={<ForgotPassword />}
+            />
+            <Route
+              path={`${HOME_PAGE}/edit-profile`}
+              element={<EditProfile />}
+            />
+            <Route
+              path={`${HOME_PAGE}/dashboard`}
               element={
                 <MainPage>
                   <Dashboard />
@@ -38,7 +47,7 @@ function App() {
               }
             />
             <Route
-              path="/debters"
+              path={`${HOME_PAGE}/debters`}
               element={
                 <MainPage>
                   <Debters />
@@ -46,7 +55,7 @@ function App() {
               }
             />
             <Route
-              path="/salary-scheduele"
+              path={`${HOME_PAGE}/salary-scheduele`}
               element={
                 <MainPage>
                   <SalaryScheduele />
@@ -54,7 +63,7 @@ function App() {
               }
             />
             <Route
-              path="/taotc"
+              path={`${HOME_PAGE}/taotc`}
               element={
                 <MainPage>
                   <TAOTC />
@@ -62,7 +71,7 @@ function App() {
               }
             />
             <Route
-              path="/calculator"
+              path={`${HOME_PAGE}/calculator`}
               element={
                 <MainPage>
                   <Calculator />
@@ -70,7 +79,7 @@ function App() {
               }
             />
             <Route
-              path="/notes"
+              path={`${HOME_PAGE}/notes`}
               element={
                 <MainPage>
                   <Notes />
@@ -78,7 +87,7 @@ function App() {
               }
             />
             <Route
-              path="/missing-items"
+              path={`${HOME_PAGE}/missing-items`}
               element={
                 <MainPage>
                   <MissingItems />
@@ -86,7 +95,7 @@ function App() {
               }
             />
             <Route
-              path="/about-me"
+              path={`${HOME_PAGE}/about-me`}
               element={
                 <MainPage>
                   <AboutMe />

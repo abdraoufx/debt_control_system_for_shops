@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HOME_PAGE } from "../../App";
 
 type Props = {};
 
@@ -9,10 +10,10 @@ const HomeHeader = (props: Props) => {
       <img src="/images/logo.png" alt="Logo" className="logo" />
       <div className="navigate-side">
         <button className="navigate-side__sign-up">
-          <Link to="/sign-up">sign up</Link>
+          <Link to={`${HOME_PAGE}/sign-up`}>sign up</Link>
         </button>
         <button className="navigate-side__sign-in">
-          <Link to="/login">login</Link>
+          <Link to={`${HOME_PAGE}/login`}>login</Link>
         </button>
       </div>
     </header>

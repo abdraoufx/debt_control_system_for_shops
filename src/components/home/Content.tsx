@@ -1,12 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-
-/* 
-    * TODO:
-    1 => Make Img Transparent.
-    2 => Make The Intro Words.
-    3 => Make A sIMPLE fOOTER aND YOUR dONE
-*/
+import { HOME_PAGE } from "../../App";
 
 type Props = {};
 
@@ -31,7 +25,7 @@ const Content = (props: Props) => {
         <h1 className="txt-and-btn__title">With Us:</h1>
         <p className="txt-and-btn__intro">Your Shop Debt Managment Is Easy.</p>
         <button className="txt-and-btn__get-started">
-          <Link to="/dashboard">Get Started</Link>
+          <Link to={`${HOME_PAGE}/dashboard`}>Get Started</Link>
         </button>
       </div>
       <div className="techs-used">
