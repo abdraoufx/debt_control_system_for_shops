@@ -676,6 +676,7 @@ const Analytics = (props: Props) => {
     getCommedities();
     getLastMotive();
     getNotes();
+    console.log(commedities);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
