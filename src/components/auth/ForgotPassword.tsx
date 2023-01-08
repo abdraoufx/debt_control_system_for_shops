@@ -1,7 +1,6 @@
 import { sendPasswordResetEmail } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { HOME_PAGE } from "../../App";
 import { auth } from "../../firebase/firebase-config";
 
 type Props = {};
@@ -67,12 +66,10 @@ const ForgotPassword = (props: Props) => {
             Change Password
           </button>
           <div className="redirect">
-            already have an account?{" "}
-            <Link to={`${HOME_PAGE}/login`}>Login</Link>
+            already have an account? <Link to={`/login`}>Login</Link>
           </div>
           <div className="redirect">
-            don't have an account?{" "}
-            <Link to={`${HOME_PAGE}/sign-up`}>Sign Up</Link>
+            don't have an account? <Link to={`/sign-up`}>Sign Up</Link>
           </div>
         </form>
       </div>

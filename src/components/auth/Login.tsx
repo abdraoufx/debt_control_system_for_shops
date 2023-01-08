@@ -1,7 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { HOME_PAGE } from "../../App";
 import { AuthContextAPI } from "../../context/auth/AuthContext";
 import { auth } from "../../firebase/firebase-config";
 
@@ -45,7 +44,7 @@ const Login = (props: Props) => {
           displayName: resp.user.displayName,
           uid: resp.user.uid,
         });
-        navigate(`${HOME_PAGE}/dashboard`);
+        navigate(`/dashboard`);
       })
       .catch((err) => {
         setUserNotFound(true);
@@ -55,7 +54,7 @@ const Login = (props: Props) => {
   useEffect(() => {
     if (currentUser) {
       setTimeout(() => {
-        navigate(`${HOME_PAGE}/dashboard`);
+        navigate(`/dashboard`);
       }, 1200);
     }
   });
@@ -92,11 +91,10 @@ const Login = (props: Props) => {
             Sign In
           </button>
           <div className="redirect">
-            don't have an account?{" "}
-            <Link to={`${HOME_PAGE}/sign-up`}>Sign Up</Link>
+            don't have an account? <Link to={`/sign-up`}>Sign Up</Link>
           </div>
           <div className="redirect">
-            <Link to={`${HOME_PAGE}/forgot-password`}>Forgot Password?</Link>
+            <Link to={`/forgot-password`}>Forgot Password?</Link>
           </div>
         </form>
       </div>

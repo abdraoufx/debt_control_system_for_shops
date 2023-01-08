@@ -6,7 +6,6 @@ import {
 } from "firebase/auth";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { HOME_PAGE } from "../../App";
 import { AuthContextAPI } from "../../context/auth/AuthContext";
 import { auth } from "../../firebase/firebase-config";
 import "../../sass/pages/_edit-page.scss";
@@ -121,7 +120,7 @@ const EditProfile = (props: Props) => {
       <div className="edit-wrapper">
         <div className="edit-wrapper__head">
           {!isInputsShowed && (
-            <Link to={`${HOME_PAGE}/dashboard`} className="back-to-home">
+            <Link to={`/dashboard`} className="back-to-home">
               back
             </Link>
           )}

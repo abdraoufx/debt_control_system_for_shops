@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { HOME_PAGE } from "../../App";
 import { UserContextAPI } from "../../context/UserContext";
 import "../../sass/pages/_navbar.scss";
 
@@ -58,7 +57,7 @@ const NavBar = (props: Props) => {
           key={wordContainsDash ? filterTheDash(word) : word}
           onClick={(e: React.MouseEvent) => {
             toggleSelected(e);
-            navigate(`${HOME_PAGE}/${word}`);
+            navigate(`/${word}`);
             setSelectedLink(word);
           }}
         >
@@ -69,7 +68,7 @@ const NavBar = (props: Props) => {
   };
 
   const clickingAboutMe = () => {
-    navigate(`${HOME_PAGE}/about-me`);
+    navigate(`/about-me`);
     setSelectedLink("about-me");
     document.querySelector(".main-nav .selected")?.classList.remove("selected");
   };

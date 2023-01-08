@@ -1,7 +1,6 @@
 import { deleteUser, signOut } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HOME_PAGE } from "../App";
 import { AuthContextAPI } from "../context/auth/AuthContext";
 import { auth } from "../firebase/firebase-config";
 import "../sass/pages/_header.scss";
@@ -30,7 +29,7 @@ const Header = (props: Props) => {
     signOut(auth)
       .then(() => {
         clearUserAndLocalStorage();
-        navigate(`${HOME_PAGE}/login`);
+        navigate(`/login`);
       })
       .catch((error) => {
         setErrOnSignOutOrDel(true);
@@ -74,9 +73,7 @@ const Header = (props: Props) => {
           showSettings ? "showed" : "unshowed"
         }`}
       >
-        <li onClick={() => navigate(`${HOME_PAGE}/edit-profile`)}>
-          Edit Profile
-        </li>
+        <li onClick={() => navigate(`/edit-profile`)}>Edit Profile</li>
         <li onClick={signOutUser}>Sign Out</li>
         <li onClick={delUser}>Delete Account</li>
       </ul>
