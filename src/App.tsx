@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UserContext from "./context/UserContext";
 import Dashboard from "./components/navBar_components/Dashboard";
 import Debters from "./components/navBar_components/Debters";
@@ -17,8 +17,12 @@ import EditProfile from "./components/auth/EditProfile";
 import Home from "./components/home/Home";
 import "./sass/main.scss";
 import { Route, Routes } from "react-router-dom";
+import { auth } from "./firebase/firebase-config";
 
 function App() {
+  useEffect(() => {
+    console.log(auth);
+  }, []);
   return (
     <>
       <UserContext>
