@@ -12,12 +12,12 @@ interface FConfig {
 }
 
 const firebaseConfig: FConfig = {
-  apiKey: "AIzaSyDBWJ9IOPAbN75ZjKZy3naGi0DrV-UExfU",
-  authDomain: "dcsfso-820ad.firebaseapp.com",
-  projectId: "dcsfso-820ad",
-  storageBucket: "dcsfso-820ad.appspot.com",
-  messagingSenderId: "371026043598",
-  appId: "1:371026043598:web:347e60e937c24ea983669f",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY ?? "",
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ?? "",
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID ?? "",
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET ?? "",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID ?? "",
+  appId: process.env.REACT_APP_FIREBASE_APP_ID ?? "",
 };
 
 // Initialize Firebase
