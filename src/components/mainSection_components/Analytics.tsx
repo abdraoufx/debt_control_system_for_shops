@@ -594,8 +594,6 @@ const Analytics = (props: Props) => {
     },
 
     renderNextCommedities: (): JSX.Element | undefined => {
-      console.log(nexCommedities);
-
       if (!nexCommedities) return;
 
       return (
@@ -672,16 +670,11 @@ const Analytics = (props: Props) => {
   }, [debters]);
 
   useEffect(() => {
-    getNextCommedities();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [commedities]);
-
-  useEffect(() => {
-    getNextCommedities();
     getDebters();
     getLatestDebter();
     getSalaryScheds();
     getCommedities();
+    getNextCommedities();
     getLastMotive();
     getNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -747,10 +740,10 @@ const Analytics = (props: Props) => {
       </div>
       <div className="analytics__possibilites">
         <h2 className="title capitalize font-semibold">possibilites:</h2>
-        {!nexCommedities ? (
-          <div className="not-found-err pb-4">No Commedities Added.</div>
-        ) : (
+        {nexCommedities ? (
           renderNextCommedities()
+        ) : (
+          <div className="not-found-err pb-4">No Commedities Added.</div>
         )}
       </div>
       {/* Read And Write To Data Boxes */}
