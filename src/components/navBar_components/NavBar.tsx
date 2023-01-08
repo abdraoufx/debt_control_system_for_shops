@@ -46,6 +46,16 @@ const NavBar = (props: Props) => {
             .querySelector(".main-nav .selected")
             ?.classList.remove("selected");
           e.currentTarget.classList.add("selected");
+
+          if (
+            document
+              .querySelector(".main-nav")
+              ?.classList.contains("is-expanded")
+          ) {
+            document
+              .querySelector(".main-nav")
+              ?.classList.remove("is-expanded");
+          }
         }
       };
 
