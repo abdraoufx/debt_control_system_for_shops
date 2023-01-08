@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/debt_control_system_for_shops/build/static/css/main.54aa5a7a.css",
+    "main.js": "/debt_control_system_for_shops/build/static/js/main.335229be.js",
+    "index.html": "/debt_control_system_for_shops/build/index.html",
+    "main.54aa5a7a.css.map": "/debt_control_system_for_shops/build/static/css/main.54aa5a7a.css.map",
+    "main.335229be.js.map": "/debt_control_system_for_shops/build/static/js/main.335229be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54aa5a7a.css",
+    "static/js/main.335229be.js"
+  ]
+}
