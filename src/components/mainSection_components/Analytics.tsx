@@ -594,9 +594,9 @@ const Analytics = (props: Props) => {
     },
 
     renderNextCommedities: (): JSX.Element | undefined => {
-      if (!nexCommedities) return;
-
       console.log(nexCommedities);
+
+      if (!nexCommedities) return;
 
       return (
         <>
@@ -677,6 +677,7 @@ const Analytics = (props: Props) => {
   }, [commedities]);
 
   useEffect(() => {
+    getNextCommedities();
     getDebters();
     getLatestDebter();
     getSalaryScheds();
