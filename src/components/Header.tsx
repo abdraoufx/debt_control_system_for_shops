@@ -1,4 +1,4 @@
-import { deleteUser, signOut } from "firebase/auth";
+import { deleteUser, signOut, User } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContextAPI } from "../context/auth/AuthContext";
@@ -16,7 +16,7 @@ const Header = (props: Props) => {
   };
 
   const [showSettings, setShowSettings] = useState<boolean>(false);
-  const [errOnSignOutOrDel, setErrOnSignOutOrDel] = useState<boolean>(false);
+  const [errOnSignOutOrDel, setErrOnSignOutOrDel] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -32,23 +32,23 @@ const Header = (props: Props) => {
         navigate(`/login`);
       })
       .catch((error) => {
-        setErrOnSignOutOrDel(true);
+        setErrOnSignOutOrDel(
+          "An Error Aqquired, Please Try To Refresh Or Del Acc."
+        );
       });
   };
 
   const delUser = () => {
     const user = auth.currentUser;
 
-    if (user) {
-      deleteUser(user)
-        .then(() => {
-          clearUserAndLocalStorage();
-          navigate("/login");
-        })
-        .catch((err) => {
-          setErrOnSignOutOrDel(true);
-        });
-    }
+    deleteUser(user as User)
+      .then(() => {
+        clearUserAndLocalStorage();
+        navigate("/login");
+      })
+      .catch((err) => {
+        setErrOnSignOutOrDel("An Error Aqquired, Please Re-Login");
+      });
   };
 
   return (
@@ -82,10 +82,10 @@ const Header = (props: Props) => {
           <img
             src="/images/customers-page/close-icon.svg"
             alt="Close Icon"
-            onClick={() => setErrOnSignOutOrDel(false)}
+            onClick={() => setErrOnSignOutOrDel("")}
           />
         </div>
-        <span>An Error Aqquired, Try Again.</span>
+        <span>{errOnSignOutOrDel}</span>
       </div>
     </header>
   );

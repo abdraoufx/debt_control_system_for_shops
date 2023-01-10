@@ -21,6 +21,7 @@ import {
   settingDebtersToday,
   settingLatestDebter,
 } from "../navBar_components/Debters";
+import { WEEK_DAYS_LIST } from "../navBar_components/TAOTC";
 
 interface TopDebter {
   name: string | undefined;
@@ -537,64 +538,47 @@ const Analytics = (props: Props) => {
 
   const commeditiesFncsObj = {
     getNextCommedities: (): void => {
-      const DAYS_LIST: string[] = [
-        "sunday",
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-      ];
+      if (!commedities) return;
 
-      const currentDay: string = DAYS_LIST[new Date().getDay()];
+      const currentDay: string = WEEK_DAYS_LIST[new Date().getDay()];
 
-      if (commedities?.find(({ day }) => day.toLowerCase() === currentDay)) {
+      let DAY_IND: number = new Date().getDay();
+
+      const MAX_DAYS_IND: number = WEEK_DAYS_LIST.length - 1;
+
+      if (commedities.find(({ day }) => day.toLowerCase() === currentDay)) {
         // Means That Today A Commedity Will Come
         setNextCommedities(
           commedities.filter(({ day }) => day.toLowerCase() === currentDay)
         );
-      } else if (
-        commedities?.find(({ day }) => day.toLowerCase() !== currentDay)
-      ) {
-        // Here We Need To Icrease And Index Until We Found The Day
-
-        const DAYS_LIST_MAX_IND: number = DAYS_LIST.length - 1;
-
-        let CURRENT_DAY_IDX = new Date().getDay();
-
-        // I Used While Loop Because For Loop Can't See Next Week Days
-        while (
-          commedities.find(
-            // eslint-disable-next-line no-loop-func
-            ({ day }) => day !== DAYS_LIST[CURRENT_DAY_IDX]
-          )
-        ) {
-          if (
-            commedities.find(
-              // eslint-disable-next-line no-loop-func
-              ({ day }) => day === DAYS_LIST[CURRENT_DAY_IDX]
-            )
-          ) {
+      } else {
+        for (let i = DAY_IND; i <= MAX_DAYS_IND; i++) {
+          if (commedities.find(({ day }) => day === WEEK_DAYS_LIST[i])) {
             setNextCommedities(
               commedities.filter(
-                // eslint-disable-next-line no-loop-func
-                ({ day }) => day === DAYS_LIST[CURRENT_DAY_IDX]
+                ({ day }) => day.toLowerCase() === WEEK_DAYS_LIST[i]
               )
             );
-            break;
+            return;
           }
+        }
 
-          if (CURRENT_DAY_IDX === DAYS_LIST_MAX_IND) {
-            CURRENT_DAY_IDX = 0;
+        for (let j = 0; j <= MAX_DAYS_IND; j++) {
+          if (commedities.find(({ day }) => day === WEEK_DAYS_LIST[j])) {
+            setNextCommedities(
+              commedities.filter(
+                ({ day }) => day.toLowerCase() === WEEK_DAYS_LIST[j]
+              )
+            );
           }
-          CURRENT_DAY_IDX++;
         }
       }
     },
 
     renderNextCommedities: (): JSX.Element | undefined => {
       if (!nexCommedities) return;
+
+      const CURRENT_DAY_IDX = new Date().getDay();
 
       return (
         <>
@@ -612,9 +596,13 @@ const Analytics = (props: Props) => {
             .
           </span>
           <div className="comes-at capitalize text-center">
-            comes at{" "}
+            comes{" "}
             <span className="comes-at__day font-bold capitalize">
-              {nexCommedities.length && nexCommedities[0].day}
+              {nexCommedities.length &&
+              nexCommedities[0].day === WEEK_DAYS_LIST[CURRENT_DAY_IDX]
+                ? "today"
+                : `at ${nexCommedities[0].day}`}
+              .
             </span>
           </div>
         </>
@@ -676,12 +664,12 @@ const Analytics = (props: Props) => {
     getCommedities();
     getLastMotive();
     getNotes();
-    console.log(commedities);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    console.log(commedities);
+    getNextCommedities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [commedities]);
 
   return (

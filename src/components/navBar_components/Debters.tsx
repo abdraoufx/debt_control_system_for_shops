@@ -179,7 +179,7 @@ const Debters = (props: Props) => {
         id: debterIdToEdit,
         name: nameInp.value,
         job: jobInp.value,
-        debt: parseInt(debtInp.value),
+        debt: parseInt(debtInp.value) || 0,
         mobile: mobileInp.value,
       });
 
@@ -349,7 +349,7 @@ const Debters = (props: Props) => {
     if (nameInp && jobInp && debtInp && mobileInp) {
       nameInp.value = name ?? "";
       jobInp.value = job ?? "";
-      debtInp.value = debt ?? "";
+      debtInp.value = debt ? (parseInt(debt) === 0 ? "" : debt) : "";
       mobileInp.value = mobile ?? "";
     }
   };

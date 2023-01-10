@@ -16,6 +16,16 @@ import { UserData } from "../../types/userContextTypes";
 import Loader from "../custom/Loader";
 import { editClassOnMount } from "./functions/editClassOnMount";
 
+export const WEEK_DAYS_LIST: string[] = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+
 type Props = {};
 
 const TAOTC = (props: Props) => {
@@ -63,18 +73,8 @@ const TAOTC = (props: Props) => {
       dayInp = document.querySelector<HTMLInputElement>("#day");
 
     if (itemNameInp && dayInp) {
-      const DAYS_LIST: string[] = [
-        "sunday",
-        "monday",
-        "thuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-      ];
-
       // Check If Day Input Is A Valid Day
-      if (!DAYS_LIST.find((d) => d === dayInp.value.toLowerCase())) {
+      if (!WEEK_DAYS_LIST.find((d) => d === dayInp.value.toLowerCase())) {
         setInvalidDayMsg("invalid day of the week");
         return;
       }
