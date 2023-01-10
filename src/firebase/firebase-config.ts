@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-interface FConfig {
+interface FirebaseConfig {
   apiKey: string;
   authDomain: string;
   projectId: string;
@@ -11,7 +11,7 @@ interface FConfig {
   appId: string;
 }
 
-const firebaseConfig: FConfig = {
+const firebaseConfig: FirebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY ?? "",
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ?? "",
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID ?? "",
